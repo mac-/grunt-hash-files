@@ -1,6 +1,6 @@
 {
 	"name": "grunt-hash-files",
-	"description": "A grunt plugin for copying all specified files to a directory that includes a hash of the contents of those files",
+	"description": "Copies files to a directory that includes a hash of the contents of those files.",
 	"version": "0.1.0",
 	"homepage": "https://github.com/mac-/grunt-hash-files",
 	"author": {

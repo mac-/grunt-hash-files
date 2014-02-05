@@ -1,6 +1,6 @@
 # grunt-hash-files
 
-> A grunt plugin for copying all files in a directory to a new one that include a hash of the contents of that directory
+> Copies files to a directory that includes a hash of the contents of those files.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`

@@ -19,7 +19,7 @@ module.exports = function(grunt) {
 		_ = require('underscore'),
 		hashFiles = require('hash-files');
 
-	grunt.registerMultiTask('hash_files', 'Copy files to a directory that includes a hash of the contents of those files.', function() {
+	grunt.registerMultiTask('hash_files', 'Copies files to a directory that includes a hash of the contents of those files.', function() {
 
 		var options = this.options({
 				encoding: grunt.file.defaultEncoding,
