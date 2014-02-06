@@ -43,6 +43,7 @@
 	},
 	"keywords": [
 		"gruntplugin",
+		"copy",
 		"hash",
 		"version",
 		"versioning",
