@@ -50,6 +50,23 @@ module.exports = function(grunt) {
 				src: ['test/fixtures/*'],
 				dest: 'tmp/custom_options1/<h4sh>/'
 			},
+			more_custom_options: {
+				options: {
+					numChars: 8
+				},
+				files: [{
+					expand: true,
+					filter: 'isFile',
+					src: ['test/fixtures/*'],
+					dest: 'tmp/more_custom_options1/{hash}/'
+				}, {
+					expand: true,
+					filter: 'isFile',
+					cwd: 'test/fixtures',
+					src: ['*'],
+					dest: 'tmp/more_custom_options2/{hash}/'
+				}]
+			}
 		},
 
 		// Unit tests.

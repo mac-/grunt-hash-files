@@ -56,5 +56,17 @@ exports.hash_files = {
 		test.equal(actual, expected, 'should have copied the file (testing) to a dir containing the md5 hash of both testing and 123 and flattened the dir structure.');
 
 		test.done();
+	},
+	more_custom_options: function(test) {
+		test.expect(2);
+
+		var actual = grunt.file.read('tmp/more_custom_options1/bdb72f90/test/fixtures/123');
+		var expected = grunt.file.read('test/fixtures/123');
+		test.equal(actual, expected, 'should have copied the file (123) to a dir containing the sha1 hash of both testing and 123.');
+
+		actual = grunt.file.read('tmp/more_custom_options2/bdb72f90/123');
+		test.equal(actual, expected, 'should have copied the file (123) to a dir containing the sha1 hash of both testing and 123 and flattened the dir structure.');
+
+		test.done();
 	}
 };

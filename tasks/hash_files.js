@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 			hash = '',
 			dest,
 			filesNoDirs,
-			isExpandedPair,
+			isExpandedPair,	
 			self = this,
 			tally = {
 				dirs: 0,
@@ -40,6 +40,7 @@ module.exports = function(grunt) {
 			};
 
 		this.files.forEach(function(filePair) {
+
 			isExpandedPair = filePair.orig.expand || false;
 
 			// something weird happens when expand is true and compact src/dest format is used
@@ -51,17 +52,27 @@ module.exports = function(grunt) {
 					return fPair.src[0];
 				});
 			}
+			else if (isExpandedPair && self.data.files && self.data.files instanceof Array) {
+				filesNoDirs = _.groupBy(self.files, function(fPair) {
+					return fPair.orig.dest;
+				});
+				filesNoDirs = _.map(filesNoDirs[filePair.orig.dest], function(fPair) {
+					return fPair.src[0];
+				});
+			}
 			else {
 				filesNoDirs = _.filter(filePair.src, function(src) {
 					return !grunt.file.isDir(src)
 				});
 			}
+
 			hash = hashFiles.sync({
 				files: filesNoDirs,
 				noGlob: true,
 				algorithm: options.algorithm,
 				encoding: options.encoding
 			});
+
 			hash = hash.substr(0, options.numChars);
 
 			filePair.src.forEach(function(src) {
