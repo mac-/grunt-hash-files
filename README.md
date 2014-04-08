@@ -1,6 +1,6 @@
 # grunt-hash-files
 
-> Copies files to a directory that includes a hash of the contents of those files.
+> Copies files to a directory that includes a hash of the contents of those files. This is useful for versioning the contents of a folder.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
@@ -71,7 +71,7 @@ Whether to copy or set the existing file permissions. Set to `true` to copy the 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the files would be copied to the following directory: `dest/41c45d195416ad480be844112c8e596ac367628c/`
 
 ```js
 grunt.initConfig({
@@ -86,7 +86,7 @@ grunt.initConfig({
 
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the files would be copied to the following directory: `dest/236a956/`
 
 ```js
 grunt.initConfig({
@@ -94,7 +94,7 @@ grunt.initConfig({
 		options: {
 			algorithm: 'md5',
 			numChars: 7,
-			token: '\<hash\>'
+			token: '\<token\>'
 		},
 		files: {
 			'dest/<token>/': ['src/testing', 'src/123'],
